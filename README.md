@@ -4,6 +4,9 @@
 
 Script for bulk deletion of inactive and orphan accounts in Prisma Cloud CWP (Runtime Security)
 
+Example below :
+![account-to-delete](images/account-to-delete.png )
+
 
 ## Installation
 
