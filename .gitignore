@@ -1,1 +1,4 @@
 .prismacloud/credentials_*
+env
+bulk/*.json
+*.json

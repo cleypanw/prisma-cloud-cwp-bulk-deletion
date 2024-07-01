@@ -18,26 +18,41 @@ pip install -r requirements.txt
 
 Create an Access Key on Prisma Cloud, you can refer to the [online documentation](https://docs.prismacloud.io/en/enterprise-edition/content-collections/administration/create-access-keys)
 
+As this is an administrative action, the role of the user or Service Account associated with the Access Key must be [Sytem Admin](https://docs.prismacloud.io/en/classic/cspm-admin-guide/manage-prisma-cloud-administrators/prisma-cloud-administrator-roles).
+
+
+
 ## Configuration
 
 Create or update credentials and the Prisma Cloud stack configuration file`.prismacloud/credentials.json`  Below is the syntax of the file:
 
-```
+```json
 {
     "identity": "<PC_ACCESS_KEY>",
     "secret": "<PC_SECRET_KEY>",
-    "app_stack": "<PC_API, exemple: api0>", 
+    "api_stack": "<PC_API, exemple: api0>", 
     "ca_cert": ""
 }
 ```
 
 `ca_cert` is needed to eliminate some warning messages while using global protect or other VPN services.  To create the ca_cert file you can user the following script: https://github.com/PaloAltoNetworks/prismacloud-api-python/blob/main/scripts/pcs_ssl_configure.py
 
-`app_stack` should match the stack you are connecting to `app,app0,app2,app3,app4,app.eu,app2.eu,app.fr, etc...`
+`api_stack` should match the [stack you are connecting](https://pan.dev/prisma-cloud/api/cspm/api-urls/) to `api,api0,api2,api3,api4,api.eu,api2.eu,api.fr, etc...`
 
 `identity` is the Prisma Cloud access key
 
 `secret` is the Prisma Cloud secret key
+
+<u>Example credentials.json :</u>
+
+```json
+{
+    "identity": "d7b31941-XXXXX-XXXX-YYYYY-ZZZZZZZZ",
+    "secret": "BydXXXXXXXXXXXXXXXXXXX",
+    "app_stack": "api2.eu", 
+    "ca_cert": ""
+}
+```
 
 ## Executing Script
 
